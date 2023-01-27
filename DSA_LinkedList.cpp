@@ -14,5 +14,6 @@ int main(int argc, char const *argv[])
 {
     int x, y, z;
     int a, b, c;
+    int i, j, k;
     return 0;
 }
