@@ -56,11 +56,13 @@ public:
 
 };
 
-void create_list1()
+void create_list()
 {
     linked_list list1;
+    linked_list list2;
     int element, n;
 
+    cout << "Creating first list\n\n";
     do
     {
         cout << "Enter number of nodes: ";
@@ -73,10 +75,8 @@ void create_list1()
 
     } while (n > 7);
     
-    
-
-    cout << "Enter elements for first list (maximum of 7 elements) \n\n" ;
-    for (int i = 0; i < 7; i++) 
+    cout << "Enter elements for first list\n\n" ;
+    for (int i = 0; i < n; i++) 
     {
         do
         {
@@ -93,25 +93,51 @@ void create_list1()
         list1.insert(element);
     }
 
-    cout << "Enter elements for second list (maximum of 7 elements): \n";
-    for (int i = 0; i < 7; i++) {
-        int element;
-        cin >> element;
+    system("cls");
+
+    cout << "Creating second list\n\n";
+    do
+    {
+        cout << "Enter number of nodes: ";
+        cin >> n;
+
+        if (n > 7)
+        {
+            cout << "LimitError: up to 7 nodes only\n";
+        }
+
+    } while (n > 7);
+    
+    cout << "Enter elements for first list\n\n" ;
+    for (int i = 0; i < n; i++) 
+    {
+        do
+        {
+            cout << "Enter Element: ";
+            cin >> element;
+
+            if (element > 9)
+            {
+                cout << "Error: single digit only \n";
+            }
+            
+        } while (element > 9);
+        
         list2.insert(element);
     }
 
+    system("cls");
+
+    cout << "\n First List: ";
     list1.display();
+    cout << "\n Second List: ";
+    list2.display();
 }
 
 
 int main(int argc, char const *argv[])
 {
-    create_list1();
-
-    
-    
-
-
+    create_list();
 
     return 0;
 }
