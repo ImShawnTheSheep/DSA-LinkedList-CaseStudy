@@ -12,6 +12,6 @@ struct node
 
 int main(int argc, char const *argv[])
 {
-    /* code */
+    int x, y, z;
     return 0;
 }
