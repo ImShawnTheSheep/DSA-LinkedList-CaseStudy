@@ -13,5 +13,6 @@ struct node
 int main(int argc, char const *argv[])
 {
     int x, y, z;
+    int a, b, c;
     return 0;
 }
