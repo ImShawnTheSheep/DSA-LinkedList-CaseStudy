@@ -56,12 +56,9 @@ public:
 
 };
 
-
-
-int main(int argc, char const *argv[])
+void list1()
 {
     linked_list list1;
-    linked_list list2;
     int element, n;
 
     do
@@ -97,6 +94,15 @@ int main(int argc, char const *argv[])
     }
 
     list1.display();
+}
+
+
+int main(int argc, char const *argv[])
+{
+    
+    
+
+
 
     return 0;
 }
