@@ -9,6 +9,14 @@
 
 # Instructions
 
+    - Create a program using any available programming languages to address the problem.
+    - The program should create two (2) lists of numbers using linked list.
+    - Each list has a maximum capacity of (7) numbers only.
+    - Each node can only carry a single digit.
+    - Display the sum of the two lists. (see output below)
+
+    ![alt text](https://github.com/ImShawnTheSheep/DSA-LinkedList-CaseStudy/blob/main/image.png?raw=true)
+
 # Authors
 
     Jumawan, Shawn Michael
