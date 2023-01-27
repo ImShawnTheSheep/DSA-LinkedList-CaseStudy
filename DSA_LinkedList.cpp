@@ -93,6 +93,13 @@ void create_list1()
         list1.insert(element);
     }
 
+    cout << "Enter elements for second list (maximum of 7 elements): \n";
+    for (int i = 0; i < 7; i++) {
+        int element;
+        cin >> element;
+        list2.insert(element);
+    }
+
     list1.display();
 }
 
