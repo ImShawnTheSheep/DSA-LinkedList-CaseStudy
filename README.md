@@ -15,7 +15,7 @@
     - Each node can only carry a single digit.
     - Display the sum of the two lists. (see output below)
 
-![image](https://user-images.githubusercontent.com/77852376/215067244-456924ac-ca84-415d-9839-e70ee3e164f0.png)
+![image](https://github.com/ImShawnTheSheep/DSA-LinkedList-CaseStudy/blob/main/image.png)
 
 # Authors
 
