@@ -56,7 +56,7 @@ public:
 
 };
 
-void list1()
+void create_list1()
 {
     linked_list list1;
     int element, n;
@@ -99,6 +99,8 @@ void list1()
 
 int main(int argc, char const *argv[])
 {
+    create_list1();
+
     
     
 
