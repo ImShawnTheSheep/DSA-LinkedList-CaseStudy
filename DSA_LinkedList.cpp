@@ -56,14 +56,12 @@ public:
 
 };
 
-
-
-int main(int argc, char const *argv[])
+void create_list1()
 {
     linked_list list1;
     linked_list list2;
 
-    cout << "Enter elements for first list (maximum of 7 elements): \n";
+    cout << "Enter elements for first list (maximum of 7 elements): \n" ;
     for (int i = 0; i < 7; i++) {
         int element;
         cin >> element;
@@ -78,6 +76,17 @@ int main(int argc, char const *argv[])
     }
 
     list1.display();
+}
+
+
+int main(int argc, char const *argv[])
+{
+    create_list1();
+
+    
+    
+
+
 
     return 0;
 }
