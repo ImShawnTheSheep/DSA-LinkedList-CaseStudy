@@ -137,6 +137,7 @@ void create_list()
 
 int main(int argc, char const *argv[])
 {
+    system("cls");
     create_list();
 
     return 0;
