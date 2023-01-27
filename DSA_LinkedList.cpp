@@ -63,11 +63,18 @@ int main(int argc, char const *argv[])
     linked_list list1;
     linked_list list2;
 
-    cout << "Enter elements for first list (maximum of 7 elements): \n" ;
+    cout << "Enter elements for first list (maximum of 7 elements): \n";
     for (int i = 0; i < 7; i++) {
         int element;
         cin >> element;
         list1.insert(element);
+    }
+
+    cout << "Enter elements for second list (maximum of 7 elements): \n";
+    for (int i = 0; i < 7; i++) {
+        int element;
+        cin >> element;
+        list2.insert(element);
     }
 
     list1.display();
