@@ -1,7 +1,6 @@
-#include <iostream>
+#include <stdio.h>
 #include <stdlib.h>
 
-using namespace std;
 
 struct node
 {
@@ -9,6 +8,16 @@ struct node
     struct node *next;
 };
 
+struct node *head, *tail, *newNode;
+
+void create_list()
+{
+    head=tail=newNode = NULL;
+
+    newNode = (struct node*);
+    
+
+}
 
 int main(int argc, char const *argv[])
 {
