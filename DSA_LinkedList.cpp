@@ -7,13 +7,19 @@ struct node
 {
     int data;
     struct node *next;
+    struct node *prev;
 };
+
+
 
 
 int main(int argc, char const *argv[])
 {
-    int x, y, z;
-    int a, b, c;
-    int i, j, k;
+    int arry1[7];
+    int arry2[7];
+
+    
+
+    
     return 0;
 }
