@@ -10,7 +10,7 @@ struct Node
     Node *prev;
 };
 
-class linkedList
+class LinkedList
 {
 public:
     Node *head, *tail;
@@ -48,32 +48,77 @@ public:
     }
 };
 
+LinkedList list1;
+LinkedList list2;
+
 int create_list();
+void display_list();
 
 int main(int argc, char const *argv[])
 {
-    linkedList list1;
-    list1.head = NULL;
-    list1.tail = NULL;
+    bool no_exit = true;
+    int choice, nodes;
 
-    linkedList list2;
-    list2.head = NULL;
-    list2.tail = NULL;
-
-    for (int i = 0; i < 7; i++)
+    while (no_exit)
     {
-        list1.insert(create_list());
-    }
+        cout << "    Main Menu    \n";
+        cout << "1. Create List #1\n";
+        cout << "2. Create List #2\n";
+        cout << "3. Display Lists\n";
+        cout << "4. Compute Lists\n";
+        cout << "5. Exit\n";
 
-    for (int i = 0; i < 7; i++)
-    {
-        list2.insert(create_list());
-    }
+        switch (choice)
+        {
+        case 1:
+            cout << "Creating first list\n\n";
+            do
+            {
+                cout << "Enter number of nodes: ";
+                cin >> nodes;
 
-    cout << "\n\n";
-    list1.display();
-    cout << "\n\n";
-    list2.display();
+                if (nodes > 7)
+                {
+                    cout << "LimitError: up to 7 nodes only \n";
+                }
+
+            } while (nodes > 7);
+
+            for (int i = 0; i < nodes; i++)
+            {
+                list1.insert(create_list());
+            }
+            break;
+        case 2:
+            cout << "Creating second list\n\n";
+            do
+            {
+                cout << "Enter number of nodes: ";
+                cin >> nodes;
+
+                if (nodes > 7)
+                {
+                    cout << "LimitError: up to 7 nodes only \n";
+                }
+
+            } while (nodes > 7);
+
+            for (int i = 0; i < nodes; i++)
+            {
+                list2.insert(create_list());
+            }
+            break;
+        case 3:
+
+            break;
+        case 4:
+            break;
+        case 5:
+            break;
+        default:
+            break;
+        }
+    }
 
     return 0;
 }
@@ -81,6 +126,10 @@ int main(int argc, char const *argv[])
 int create_list()
 {
     int input;
+    list1.head = NULL;
+    list1.tail = NULL;
+    list2.head = NULL;
+    list2.tail = NULL;
 
     do
     {
@@ -94,9 +143,13 @@ int create_list()
 
     } while (input > 9);
 
-    // may binago ako dito
-
-    // may binago ako ulit dito
-
     return input;
+}
+
+void display_list()
+{
+    cout << "\n First List: ";
+    list1.display();
+    cout << "\n Second List: ";
+    list2.display();
 }
