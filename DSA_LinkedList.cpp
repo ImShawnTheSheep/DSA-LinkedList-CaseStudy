@@ -75,6 +75,21 @@ int main(int argc, char const *argv[])
     cout << "\n\n";
     list2.display();
 
+    // sum of two lists
+    int size1 = list1.getSize();
+    int size2 = list2.getSize();
+    Node* temp1 = list1.head;
+    Node* temp2 = list2.head;
+    int carry = 0, sum;
+    while (temp1 != NULL || temp2 != NULL) {
+        int x = (temp1 != NULL) ? temp1->data : 0;
+        int y = (temp2 != NULL) ? temp2->data : 0;
+        sum = carry + x + y;
+        carry = sum / 10;
+        if (temp1 != NULL) temp1 = temp1->next;
+        if (temp2 != NULL) temp2 = temp2->next;
+    }
+    if (carry) cout << carry;
     return 0;
 }
 
