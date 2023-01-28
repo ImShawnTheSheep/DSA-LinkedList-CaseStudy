@@ -10,48 +10,89 @@ struct Node
     Node *prev;
 };
 
-struct Node *head, *tail;
-
-void insert(int value)
+class linkedList
 {
-    Node *temp = new Node;
-    temp->data = value;
-    temp->next = NULL;
-    temp->prev = NULL;
+public:
+    Node *head, *tail;
 
-    if (head == NULL)
+    void insert(int value)
     {
-        head = temp;
-        tail = temp;
-        temp = NULL;
-    }
-    else
-    {
-        tail->next = temp;
-        temp->prev = tail;
-        tail = temp;
-    }
-}
+        Node *temp = new Node();
+        temp->data = value;
+        temp->next = NULL;
+        temp->prev = NULL;
 
-void display()
-{
-    Node *temp = new Node;
-    temp = head;
-    while (temp != NULL)
-    {
-        cout << temp->data << " ";
-        temp = temp->next;
+        if (head == NULL)
+        {
+            head = temp;
+            tail = temp;
+            temp = NULL;
+        }
+        else
+        {
+            tail->next = temp;
+            temp->prev = tail;
+            tail = temp;
+        }
     }
-}
 
-void create_list()
-{
-}
+    void display()
+    {
+        Node *temp = head;
+        temp = head;
+        while (temp != NULL)
+        {
+            cout << temp->data << " ";
+            temp = temp->next;
+        }
+    }
+};
+
+int create_list();
 
 int main(int argc, char const *argv[])
 {
-    system("cls");
-    create_list();
+    linkedList list1;
+    list1.head = NULL;
+    list1.tail = NULL;
+
+    linkedList list2;
+    list2.head = NULL;
+    list2.tail = NULL;
+
+    for (int i = 0; i < 7; i++)
+    {
+        list1.insert(create_list());
+    }
+
+    for (int i = 0; i < 7; i++)
+    {
+        list2.insert(create_list());
+    }
+
+    cout << "\n\n";
+    list1.display();
+    cout << "\n\n";
+    list2.display();
 
     return 0;
+}
+
+int create_list()
+{
+    int input;
+
+    do
+    {
+        cout << "Enter Element: ";
+        cin >> input;
+
+        if (input > 9)
+        {
+            cout << "Error: single digit only \n";
+        }
+
+    } while (input > 9);
+
+    return input;
 }
