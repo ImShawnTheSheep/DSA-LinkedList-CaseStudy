@@ -94,5 +94,7 @@ int create_list()
 
     } while (input > 9);
 
+    // may binago ako dito
+
     return input;
 }
