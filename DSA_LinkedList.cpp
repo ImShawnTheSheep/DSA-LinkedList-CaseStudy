@@ -98,7 +98,5 @@ int create_list()
 
     // may binago ako ulit dito
 
-    // asdasdasd
-
     return input;
 }
