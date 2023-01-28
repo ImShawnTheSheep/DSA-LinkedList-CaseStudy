@@ -46,20 +46,6 @@ public:
             temp = temp->next;
         }
     }
-
-    int getSize(Node *head)
-    {
-        int list_size = 0;
-        Node *current = head;
-
-        while (current != NULL)
-        {
-            list_size++;
-            current = current->next;
-        }
-
-        return list_size;
-    }
 };
 
 LinkedList list1;
@@ -176,28 +162,14 @@ void display_list()
 
 void compute_list()
 {
-    /* // sum of two lists
-    int size1 = list1.getSize();
-    int size2 = list2.getSize();
-    Node *temp1 = list1.head;
-    Node *temp2 = list2.head;
-    int carry = 0, sum;
-    while (temp1 != NULL || temp2 != NULL)
+    sumlist.head = NULL;
+    sumlist.tail = NULL;
+
+    Node *temp1 = list1.tail;
+    Node *temp2 = list2.tail;
+
+    do
     {
-        int x = (temp1 != NULL) ? temp1->data : 0;
-        int y = (temp2 != NULL) ? temp2->data : 0;
-        sum = carry + x + y;
-        carry = sum / 10;
-        if (temp1 != NULL)
-            temp1 = temp1->next;
-        if (temp2 != NULL)
-            temp2 = temp2->next;
-    }
-    if (carry)
-        cout << carry; */
 
-    int list1_size = list1.getSize(list1.head);
-    int list2_size = list2.getSize(list2.head);
-
-    cout << list1_size, list2_size;
+    } while ();
 }
