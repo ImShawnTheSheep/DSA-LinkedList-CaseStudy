@@ -46,13 +46,29 @@ public:
             temp = temp->next;
         }
     }
+
+    int getSize(Node *head)
+    {
+        int list_size = 0;
+        Node *current = head;
+
+        while (current != NULL)
+        {
+            list_size++;
+            current = current->next;
+        }
+
+        return list_size;
+    }
 };
 
 LinkedList list1;
 LinkedList list2;
+LinkedList sumlist;
 
 int create_list();
 void display_list();
+void compute_list();
 
 int main(int argc, char const *argv[])
 {
@@ -67,10 +83,13 @@ int main(int argc, char const *argv[])
         cout << "3. Display Lists\n";
         cout << "4. Compute Lists\n";
         cout << "5. Exit\n";
+        cin >> choice;
 
         switch (choice)
         {
         case 1:
+            list1.head = NULL;
+            list1.tail = NULL;
             cout << "Creating first list\n\n";
             do
             {
@@ -90,6 +109,8 @@ int main(int argc, char const *argv[])
             }
             break;
         case 2:
+            list2.head = NULL;
+            list2.tail = NULL;
             cout << "Creating second list\n\n";
             do
             {
@@ -109,42 +130,26 @@ int main(int argc, char const *argv[])
             }
             break;
         case 3:
-
+            display_list();
+            cout << "\n";
             break;
         case 4:
+            compute_list();
             break;
         case 5:
+            no_exit = false;
             break;
         default:
             break;
         }
     }
 
-    // sum of two lists
-    int size1 = list1.getSize();
-    int size2 = list2.getSize();
-    Node* temp1 = list1.head;
-    Node* temp2 = list2.head;
-    int carry = 0, sum;
-    while (temp1 != NULL || temp2 != NULL) {
-        int x = (temp1 != NULL) ? temp1->data : 0;
-        int y = (temp2 != NULL) ? temp2->data : 0;
-        sum = carry + x + y;
-        carry = sum / 10;
-        if (temp1 != NULL) temp1 = temp1->next;
-        if (temp2 != NULL) temp2 = temp2->next;
-    }
-    if (carry) cout << carry;
     return 0;
 }
 
 int create_list()
 {
     int input;
-    list1.head = NULL;
-    list1.tail = NULL;
-    list2.head = NULL;
-    list2.tail = NULL;
 
     do
     {
@@ -167,4 +172,32 @@ void display_list()
     list1.display();
     cout << "\n Second List: ";
     list2.display();
+}
+
+void compute_list()
+{
+    /* // sum of two lists
+    int size1 = list1.getSize();
+    int size2 = list2.getSize();
+    Node *temp1 = list1.head;
+    Node *temp2 = list2.head;
+    int carry = 0, sum;
+    while (temp1 != NULL || temp2 != NULL)
+    {
+        int x = (temp1 != NULL) ? temp1->data : 0;
+        int y = (temp2 != NULL) ? temp2->data : 0;
+        sum = carry + x + y;
+        carry = sum / 10;
+        if (temp1 != NULL)
+            temp1 = temp1->next;
+        if (temp2 != NULL)
+            temp2 = temp2->next;
+    }
+    if (carry)
+        cout << carry; */
+
+    int list1_size = list1.getSize(list1.head);
+    int list2_size = list2.getSize(list2.head);
+
+    cout << list1_size, list2_size;
 }
