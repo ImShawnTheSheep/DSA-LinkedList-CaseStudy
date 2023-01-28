@@ -13,7 +13,7 @@ struct Node
 class LinkedList
 {
 public:
-    Node *head, *tail;
+    Node *head, *tail, *curr;
 
     void insert(int value)
     {
@@ -33,6 +33,27 @@ public:
             tail->next = temp;
             temp->prev = tail;
             tail = temp;
+        }
+    }
+
+    void rev_insert(int value)
+    {
+        Node *temp = new Node();
+        temp->data = value;
+        temp->next = NULL;
+        temp->prev = NULL;
+
+        if (tail == NULL)
+        {
+            tail = temp;
+            head = temp;
+            temp = NULL;
+        }
+        else
+        {
+            tail->next = temp;
+            temp->prev = tail;
+            head = temp;
         }
     }
 
@@ -158,18 +179,10 @@ void display_list()
     list1.display();
     cout << "\n Second List: ";
     list2.display();
+    cout << "\n Sum: ";
+    sumlist.display();
 }
 
 void compute_list()
 {
-    sumlist.head = NULL;
-    sumlist.tail = NULL;
-
-    Node *temp1 = list1.tail;
-    Node *temp2 = list2.tail;
-
-    do
-    {
-
-    } while ();
 }
