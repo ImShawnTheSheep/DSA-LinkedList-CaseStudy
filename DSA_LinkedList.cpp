@@ -185,7 +185,18 @@ void compute_list()
 
     do
     {
-        sum = list1.curr->data + list2.curr->data + carry;
+        if (list1.curr == NULL)
+        {
+            sum = 0 + list2.curr->data + carry;
+        }
+        else if (list2.curr == NULL)
+        {
+            sum = list1.curr->data + 0 + carry;
+        }
+        else
+        {
+            sum = list1.curr->data + list2.curr->data + carry;
+        }
 
         if (sum > 9 && sum < 20)
         {
