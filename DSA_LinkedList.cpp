@@ -36,27 +36,6 @@ public:
         }
     }
 
-    void rev_insert(int value)
-    {
-        Node *temp = new Node();
-        temp->data = value;
-        temp->next = NULL;
-        temp->prev = NULL;
-
-        if (tail == NULL)
-        {
-            tail = temp;
-            head = temp;
-            temp = NULL;
-        }
-        else
-        {
-            tail->next = temp;
-            temp->prev = tail;
-            head = temp;
-        }
-    }
-
     void display()
     {
         Node *temp = head;
@@ -65,6 +44,17 @@ public:
         {
             cout << temp->data << " ";
             temp = temp->next;
+        }
+    }
+
+    void rev_display()
+    {
+        Node *temp = tail;
+        temp = tail;
+        while (temp != NULL)
+        {
+            cout << temp->data << " ";
+            temp = temp->prev;
         }
     }
 };
@@ -180,9 +170,51 @@ void display_list()
     cout << "\n Second List: ";
     list2.display();
     cout << "\n Sum: ";
-    sumlist.display();
+    sumlist.rev_display();
 }
 
 void compute_list()
 {
+    list1.curr = list1.tail;
+    list2.curr = list2.tail;
+    sumlist.head = NULL;
+    sumlist.tail = NULL;
+
+    int sum;
+    int carry = 0;
+
+    do
+    {
+        if (list1.curr == NULL)
+        {
+            sum = 0 + list2.curr->data + carry;
+        }
+        else if (list2.curr == NULL)
+        {
+            sum = list1.curr->data + 0 + carry;
+        }
+        else
+        {
+            sum = list1.curr->data + list2.curr->data + carry;
+        }
+
+        if (sum > 9 && sum < 20)
+        {
+            carry = 1;
+        }
+        else if (sum >= 20)
+        {
+            carry = 2;
+        }
+        else
+        {
+            carry = 0;
+        }
+
+        sumlist.insert(sum);
+
+        list1.curr = list1.curr->prev;
+        list2.curr = list2.curr->prev;
+
+    } while (list1.curr != NULL && list2.curr != NULL);
 }
