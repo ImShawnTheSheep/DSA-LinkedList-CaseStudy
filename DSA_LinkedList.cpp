@@ -13,7 +13,7 @@ struct Node
 class LinkedList
 {
 public:
-    Node *head, *tail;
+    Node *head, *tail, *curr;
 
     void insert(int value)
     {
@@ -36,6 +36,27 @@ public:
         }
     }
 
+    void rev_insert(int value)
+    {
+        Node *temp = new Node();
+        temp->data = value;
+        temp->next = NULL;
+        temp->prev = NULL;
+
+        if (tail == NULL)
+        {
+            tail = temp;
+            head = temp;
+            temp = NULL;
+        }
+        else
+        {
+            tail->next = temp;
+            temp->prev = tail;
+            head = temp;
+        }
+    }
+
     void display()
     {
         Node *temp = head;
@@ -45,20 +66,6 @@ public:
             cout << temp->data << " ";
             temp = temp->next;
         }
-    }
-
-    int getSize(Node *head)
-    {
-        int list_size = 0;
-        Node *current = head;
-
-        while (current != NULL)
-        {
-            list_size++;
-            current = current->next;
-        }
-
-        return list_size;
     }
 };
 
@@ -172,32 +179,10 @@ void display_list()
     list1.display();
     cout << "\n Second List: ";
     list2.display();
+    cout << "\n Sum: ";
+    sumlist.display();
 }
 
 void compute_list()
 {
-    /* // sum of two lists
-    int size1 = list1.getSize();
-    int size2 = list2.getSize();
-    Node *temp1 = list1.head;
-    Node *temp2 = list2.head;
-    int carry = 0, sum;
-    while (temp1 != NULL || temp2 != NULL)
-    {
-        int x = (temp1 != NULL) ? temp1->data : 0;
-        int y = (temp2 != NULL) ? temp2->data : 0;
-        sum = carry + x + y;
-        carry = sum / 10;
-        if (temp1 != NULL)
-            temp1 = temp1->next;
-        if (temp2 != NULL)
-            temp2 = temp2->next;
-    }
-    if (carry)
-        cout << carry; */
-
-    int list1_size = list1.getSize(list1.head);
-    int list2_size = list2.getSize(list2.head);
-
-    cout << list1_size, list2_size;
 }
