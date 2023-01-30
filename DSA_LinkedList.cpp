@@ -1,8 +1,8 @@
 #include <iostream>
 #include <stdlib.h>
+#include <unistd.h>
 
 using namespace std;
-
 struct Node
 {
     int data;
@@ -86,36 +86,111 @@ int main(int argc, char const *argv[])
         cout << "3. Compute Lists\n";
         cout << "------------------------------------\n";
 
+        cout << "INPUT: ";
         cin >> choice;
 
         switch (choice)
         {
         case 1:
+        LISTS_OVERWRITE:
             system("cls");
-
             cout << "------------------------------------\n";
-            cout << "            Create Lists            \n";
-            cout << "1. Create/Overwrite List #1\n";
-            cout << "2. Create/Overwrite List #2\n";
-            cout << "3. Reset All Lists";
-            cout << "4. Exit";
+            cout << "       Create/Overwrite Lists       \n";
+            if (list1.head == NULL)
+                cout << "1. Create List #1\n";
+            else
+                cout << "1. Overwrite List #1\n";
+
+            if (list2.head == NULL)
+                cout << "1. Create List #2\n";
+            else
+                cout << "1. Overwrite List #2\n";
+            cout << "3. Reset All Lists\n";
+            cout << "4. Back\n";
             cout << "------------------------------------\n";
 
+            cout << "INPUT: ";
             cin >> choice;
 
             switch (choice)
             {
             case 1:
-                /* code */
-                break;
+                if (list1.head != NULL)
+                {
+                    cout << "OverwriteAlert!\n";
+                    cout << "List #1 will be overwritten!";
+                    system("pause");
+                }
 
+                list1.head = NULL;
+                list1.tail = NULL;
+
+                do
+                {
+                    cout << "Enter number of nodes: ";
+                    cin >> nodes;
+
+                    if (nodes > 7)
+                        cout << "LimitError: up to 7 nodes only \n";
+
+                } while (nodes > 7);
+
+                for (int i = 0; i < nodes; i++)
+                    list1.insert(create_list());
+                break;
+            case 2:
+                if (list2.head != NULL)
+                {
+                    cout << "OverwriteAlert!\n";
+                    cout << "List #2 will be overwritten!";
+                    system("pause");
+                }
+
+                list2.head = NULL;
+                list2.tail = NULL;
+
+                do
+                {
+                    cout << "Enter number of nodes: ";
+                    cin >> nodes;
+
+                    if (nodes > 7)
+                        cout << "LimitError: up to 7 nodes only \n";
+
+                } while (nodes > 7);
+
+                for (int i = 0; i < nodes; i++)
+                    list2.insert(create_list());
+                break;
+            case 3:
+                cout << "OverwriteAlert!\n";
+                cout << "All Lists Made Will Be OVERWRITTEN!\n";
+                system("pause");
+
+                list1.head = NULL;
+                list1.tail = NULL;
+                list2.head = NULL;
+                list2.tail = NULL;
+
+                cout << "\nResetting Lists...\n";
+                sleep(2);
+                goto LISTS_OVERWRITE;
+                break;
+            case 4:
+                system("cls");
+                cout << "Please wait...";
+                sleep(2);
+                break;
             default:
+                system("cls");
+                cout << "InputError: Make sure inputs are correct.";
+                system("pause");
                 break;
             }
-
-            break;
-
         default:
+            system("cls");
+            cout << "InputError: Make sure inputs are correct.";
+            system("pause");
             break;
         }
     }
