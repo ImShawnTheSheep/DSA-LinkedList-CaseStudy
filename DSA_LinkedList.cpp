@@ -1,4 +1,5 @@
 #include <iostream>
+#include <conio.h>
 #include <stdlib.h>
 #include <unistd.h>
 
@@ -64,7 +65,6 @@ LinkedList list2;
 LinkedList sumlist;
 
 int create_list();
-void display_list();
 void compute_list();
 //* int carry_function();
 
@@ -74,10 +74,10 @@ int main(int argc, char const *argv[])
 
     bool no_exit = true;
     int choice, nodes;
+    char y_n;
 
     while (no_exit)
     {
-    RE_MAIN_MENU:
         system("cls");
 
         cout << "------------------------------------\n";
@@ -93,7 +93,7 @@ int main(int argc, char const *argv[])
         switch (choice)
         {
         case 1:
-        LISTS_OVERWRITE:
+        LISTS_MENU:
             system("cls");
             cout << "------------------------------------\n";
             cout << "       Create/Overwrite Lists       \n";
@@ -103,11 +103,11 @@ int main(int argc, char const *argv[])
                 cout << "1. Overwrite List #1\n";
 
             if (list2.head == NULL)
-                cout << "1. Create List #2\n";
+                cout << "2. Create List #2\n";
             else
-                cout << "1. Overwrite List #2\n";
+                cout << "2. Overwrite List #2\n";
             cout << "3. Reset All Lists\n";
-            cout << "4. Back\n";
+            cout << "4. Back to Main Menu\n";
             cout << "------------------------------------\n";
 
             cout << "INPUT: ";
@@ -128,11 +128,11 @@ int main(int argc, char const *argv[])
 
                 do
                 {
-                    cout << "Enter number of nodes: ";
+                    cout << "\nEnter number of nodes: ";
                     cin >> nodes;
 
                     if (nodes > 7)
-                        cout << "LimitError: up to 7 nodes only \n";
+                        cout << "LimitError: up to 7 nodes only\n";
 
                 } while (nodes > 7);
 
@@ -144,8 +144,8 @@ int main(int argc, char const *argv[])
 
                 cout << "\n\n";
                 system("pause");
-                goto LISTS_OVERWRITE;
-                break;
+
+                goto LISTS_MENU;
             case 2:
                 if (list2.head != NULL)
                 {
@@ -159,11 +159,11 @@ int main(int argc, char const *argv[])
 
                 do
                 {
-                    cout << "Enter number of nodes: ";
+                    cout << "\nEnter number of nodes: ";
                     cin >> nodes;
 
                     if (nodes > 7)
-                        cout << "LimitError: up to 7 nodes only \n";
+                        cout << "LimitError: up to 7 nodes only\n";
 
                 } while (nodes > 7);
 
@@ -175,8 +175,8 @@ int main(int argc, char const *argv[])
 
                 cout << "\n\n";
                 system("pause");
-                goto LISTS_OVERWRITE;
-                break;
+
+                goto LISTS_MENU;
             case 3:
                 cout << "OverwriteAlert!\n";
                 cout << "All Lists Made Will Be OVERWRITTEN!\n";
@@ -189,34 +189,95 @@ int main(int argc, char const *argv[])
 
                 cout << "\nResetting List #1 .";
                 sleep(1);
-                cout << ".";
+                cout << "..";
                 sleep(1);
-                cout << ".\n";
+                cout << "..\n";
                 cout << "\nResetting List #2 .";
                 sleep(1);
-                cout << ".";
+                cout << "..";
                 sleep(1);
-                cout << ".\n";
+                cout << "..\n";
 
-                goto LISTS_OVERWRITE;
-                break;
+                goto LISTS_MENU;
             case 4:
                 system("cls");
                 cout << "Please wait .";
                 sleep(1);
-                cout << ".";
+                cout << "..";
                 sleep(1);
-                cout << ".";
-                goto RE_MAIN_MENU;
+                cout << "..";
                 break;
             default:
                 system("cls");
                 cout << "InputError: Make sure input is correct.\n\n";
                 system("pause");
-                break;
-            }
-        case 2:
 
+                goto LISTS_MENU;
+            }
+            break;
+        case 2:
+            system("cls");
+            if (list1.head != NULL && list2.head != NULL)
+            {
+                cout << "------------------------------------\n";
+                cout << "List #1: ";
+                list1.display();
+                cout << "\n------------------------------------\n";
+                cout << "List #2: ";
+                list2.display();
+                cout << "\n------------------------------------\n";
+            }
+            else if (list1.head != NULL && list2.head == NULL)
+            {
+                cout << "------------------------------------\n";
+                cout << "List #1: ";
+                list1.display();
+                cout << "\n------------------------------------\n";
+                cout << "List #2: ";
+                cout << "NO DATA TO DISPLAY!\n";
+                cout << "------------------------------------\n";
+
+                cout << "No data entered in List #2!\n";
+                cout << "Would you like to create List #2? [Y/n]";
+                y_n = getch();
+
+                if (y_n == 'Y' || y_n == 'y')
+                    goto LISTS_MENU;
+            }
+            else if (list1.head == NULL && list2.head != NULL)
+            {
+                cout << "------------------------------------\n";
+                cout << "List #1: NO DATA TO DISPLAY!\n";
+                cout << "------------------------------------\n";
+                cout << "List #2: ";
+                list2.display();
+                cout << "------------------------------------\n";
+
+                cout << "\nNo data entered in List #1!\n";
+                cout << "Would you like to create List #1? [Y/n]\n";
+                y_n = getch();
+
+                if (y_n == 'Y' || y_n == 'y')
+                    goto LISTS_MENU;
+            }
+            else
+            {
+                cout << "------------------------------------\n";
+                cout << "List #1: NO DATA TO DISPLAY!\n";
+                cout << "------------------------------------\n";
+                cout << "List #1: NO DATA TO DISPLAY!\n";
+                cout << "------------------------------------\n";
+
+                cout << "\nNo data entered in the lists!\n";
+                cout << "Would you like to create the lists? [Y/n]\n";
+                y_n = getch();
+
+                if (y_n == 'Y' || y_n == 'y')
+                    goto LISTS_MENU;
+            }
+            cout << "\n\n";
+            system("pause");
+            break;
         default:
             system("cls");
             cout << "InputError: Make sure input is correct.\n\n";
@@ -245,16 +306,6 @@ int create_list()
     } while (input > 9);
 
     return input;
-}
-
-void display_list()
-{
-    cout << "\n First List:  ";
-    list1.display();
-    cout << "\n Second List: ";
-    list2.display();
-    cout << "\n Total:       ";
-    sumlist.rev_display();
 }
 
 void compute_list()
