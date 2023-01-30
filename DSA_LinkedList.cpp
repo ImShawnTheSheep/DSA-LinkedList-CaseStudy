@@ -176,8 +176,9 @@ void display_list()
 
 void compute_list()
 {
-    list1.curr = list1.tail;
+
     list2.curr = list2.tail;
+    list1.curr = list1.tail;
     sumlist.head = NULL;
     sumlist.tail = NULL;
 
@@ -195,7 +196,20 @@ void compute_list()
                 sum = sum - 10;
                 carry = 1;
             }
-            else if (sum >= 20)
+            else if (sum == 10 || sum == 20)
+            {
+                if (sum == 10)
+                {
+                    carry = 1;
+                    sum = 0;
+                }
+                else if (sum == 20)
+                {
+                    carry = 2;
+                    sum = 0;
+                }
+            }
+            else if (sum > 20)
             {
                 sum = sum - 20;
                 carry = 2;
@@ -212,11 +226,40 @@ void compute_list()
 
         } while ((list1.curr != NULL) && (list2.curr != NULL));
     }
-    else if ((list1.curr != NULL) && (list2.curr == NULL))
+
+    if ((list1.curr != NULL) && (list2.curr == NULL))
     {
         do
         {
             sum = list1.curr->data + carry;
+
+            if (sum > 10 && sum < 20)
+            {
+                sum = sum - 10;
+                carry = 1;
+            }
+            else if (sum == 10 || sum == 20)
+            {
+                if (sum == 10)
+                {
+                    carry = 1;
+                    sum = 0;
+                }
+                else if (sum == 20)
+                {
+                    carry = 2;
+                    sum = 0;
+                }
+            }
+            else if (sum > 20)
+            {
+                sum = sum - 20;
+                carry = 2;
+            }
+            else
+            {
+                carry = 0;
+            }
 
             sumlist.insert(sum);
 
@@ -230,15 +273,43 @@ void compute_list()
         {
             sum = list2.curr->data + carry;
 
+            if (sum > 10 && sum < 20)
+            {
+                sum = sum - 10;
+                carry = 1;
+            }
+            else if (sum == 10 || sum == 20)
+            {
+                if (sum == 10)
+                {
+                    carry = 1;
+                    sum = 0;
+                }
+                else if (sum == 20)
+                {
+                    carry = 2;
+                    sum = 0;
+                }
+            }
+            else if (sum > 20)
+            {
+                sum = sum - 20;
+                carry = 2;
+            }
+            else
+            {
+                carry = 0;
+            }
+
             sumlist.insert(sum);
 
             list2.curr = list2.curr->prev;
 
         } while (list2.curr != NULL);
     }
-}
 
-int carry_function(int sum)
-{
-    int carry;
+    if (carry >= 1)
+    {
+        sumlist.insert(carry);
+    }
 }
