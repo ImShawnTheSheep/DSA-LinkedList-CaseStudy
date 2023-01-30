@@ -185,7 +185,7 @@ void compute_list()
 
     do
     {
-        if (list2.curr == NULL)
+        /* if (list2.curr == NULL)
         {
             sumlist.insert(list1.curr->data + carry);
         }
@@ -196,7 +196,9 @@ void compute_list()
         else
         {
             sum = list1.curr->data + list2.curr->data + carry;
-        }
+        } */
+
+        sum = list1.curr->data + list2.curr->data + carry;
 
         if (sum >= 10 && sum < 20)
         {
