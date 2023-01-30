@@ -70,73 +70,51 @@ void compute_list();
 
 int main(int argc, char const *argv[])
 {
+    system("cls");
+
     bool no_exit = true;
     int choice, nodes;
 
     while (no_exit)
     {
-        cout << "    Main Menu    \n";
-        cout << "1. Create List #1\n";
-        cout << "2. Create List #2\n";
-        cout << "3. Display Lists\n";
-        cout << "4. Compute Lists\n";
-        cout << "5. Exit\n";
+        system("cls");
+
+        cout << "------------------------------------\n";
+        cout << "              Main Menu             \n";
+        cout << "1. Create Lists\n";
+        cout << "2. Display Lists\n";
+        cout << "3. Compute Lists\n";
+        cout << "------------------------------------\n";
+
         cin >> choice;
 
         switch (choice)
         {
         case 1:
-            list1.head = NULL;
-            list1.tail = NULL;
-            cout << "Creating first list\n\n";
-            do
+            system("cls");
+
+            cout << "------------------------------------\n";
+            cout << "            Create Lists            \n";
+            cout << "1. Create/Overwrite List #1\n";
+            cout << "2. Create/Overwrite List #2\n";
+            cout << "3. Reset All Lists";
+            cout << "4. Exit";
+            cout << "------------------------------------\n";
+
+            cin >> choice;
+
+            switch (choice)
             {
-                cout << "Enter number of nodes: ";
-                cin >> nodes;
+            case 1:
+                /* code */
+                break;
 
-                if (nodes > 7)
-                {
-                    cout << "LimitError: up to 7 nodes only \n";
-                }
-
-            } while (nodes > 7);
-
-            for (int i = 0; i < nodes; i++)
-            {
-                list1.insert(create_list());
+            default:
+                break;
             }
-            break;
-        case 2:
-            list2.head = NULL;
-            list2.tail = NULL;
-            cout << "Creating second list\n\n";
-            do
-            {
-                cout << "Enter number of nodes: ";
-                cin >> nodes;
 
-                if (nodes > 7)
-                {
-                    cout << "LimitError: up to 7 nodes only \n";
-                }
+            break;
 
-            } while (nodes > 7);
-
-            for (int i = 0; i < nodes; i++)
-            {
-                list2.insert(create_list());
-            }
-            break;
-        case 3:
-            display_list();
-            cout << "\n";
-            break;
-        case 4:
-            compute_list();
-            break;
-        case 5:
-            no_exit = false;
-            break;
         default:
             break;
         }
