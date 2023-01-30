@@ -77,6 +77,7 @@ int main(int argc, char const *argv[])
 
     while (no_exit)
     {
+    RE_MAIN_MENU:
         system("cls");
 
         cout << "------------------------------------\n";
@@ -137,6 +138,13 @@ int main(int argc, char const *argv[])
 
                 for (int i = 0; i < nodes; i++)
                     list1.insert(create_list());
+
+                cout << "\nList #1: ";
+                list1.display();
+
+                cout << "\n\n";
+                system("pause");
+                goto LISTS_OVERWRITE;
                 break;
             case 2:
                 if (list2.head != NULL)
@@ -161,35 +169,57 @@ int main(int argc, char const *argv[])
 
                 for (int i = 0; i < nodes; i++)
                     list2.insert(create_list());
+
+                cout << "\nList #2: ";
+                list2.display();
+
+                cout << "\n\n";
+                system("pause");
+                goto LISTS_OVERWRITE;
                 break;
             case 3:
                 cout << "OverwriteAlert!\n";
                 cout << "All Lists Made Will Be OVERWRITTEN!\n";
                 system("pause");
 
-                list1.head = NULL;
-                list1.tail = NULL;
                 list2.head = NULL;
                 list2.tail = NULL;
+                list1.head = NULL;
+                list1.tail = NULL;
 
-                cout << "\nResetting Lists...\n";
-                sleep(2);
+                cout << "\nResetting List #1 .";
+                sleep(1);
+                cout << ".";
+                sleep(1);
+                cout << ".\n";
+                cout << "\nResetting List #2 .";
+                sleep(1);
+                cout << ".";
+                sleep(1);
+                cout << ".\n";
+
                 goto LISTS_OVERWRITE;
                 break;
             case 4:
                 system("cls");
-                cout << "Please wait...";
-                sleep(2);
+                cout << "Please wait .";
+                sleep(1);
+                cout << ".";
+                sleep(1);
+                cout << ".";
+                goto RE_MAIN_MENU;
                 break;
             default:
                 system("cls");
-                cout << "InputError: Make sure inputs are correct.";
+                cout << "InputError: Make sure input is correct.\n\n";
                 system("pause");
                 break;
             }
+        case 2:
+
         default:
             system("cls");
-            cout << "InputError: Make sure inputs are correct.";
+            cout << "InputError: Make sure input is correct.\n\n";
             system("pause");
             break;
         }
