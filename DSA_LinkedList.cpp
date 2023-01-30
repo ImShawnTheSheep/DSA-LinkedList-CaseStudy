@@ -165,11 +165,11 @@ int create_list()
 
 void display_list()
 {
-    cout << "\n First List: ";
+    cout << "\n First List:  ";
     list1.display();
     cout << "\n Second List: ";
     list2.display();
-    cout << "\n Sum: ";
+    cout << "\n Total:       ";
     sumlist.rev_display();
 }
 
@@ -185,25 +185,27 @@ void compute_list()
 
     do
     {
-        if (list1.curr == NULL)
+        if (list2.curr == NULL)
         {
-            sum = 0 + list2.curr->data + carry;
+            sumlist.insert(list1.curr->data + carry);
         }
-        else if (list2.curr == NULL)
+        else if (list1.curr == NULL)
         {
-            sum = list1.curr->data + 0 + carry;
+            sumlist.insert(list2.curr->data + carry);
         }
         else
         {
             sum = list1.curr->data + list2.curr->data + carry;
         }
 
-        if (sum > 9 && sum < 20)
+        if (sum >= 10 && sum < 20)
         {
+            sum = sum - 10;
             carry = 1;
         }
         else if (sum >= 20)
         {
+            sum = sum - 20;
             carry = 2;
         }
         else
@@ -216,5 +218,5 @@ void compute_list()
         list1.curr = list1.curr->prev;
         list2.curr = list2.curr->prev;
 
-    } while (list1.curr != NULL && list2.curr != NULL);
+    } while ((list1.curr != NULL) && (list2.curr != NULL));
 }
