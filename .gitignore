@@ -353,3 +353,4 @@ MigrationBackup/
 # Ignore User Files
 test.*
 doublylinked_casestudy.*
+.vscode/*
