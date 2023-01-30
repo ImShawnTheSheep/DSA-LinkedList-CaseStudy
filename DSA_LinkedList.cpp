@@ -66,6 +66,7 @@ LinkedList sumlist;
 int create_list();
 void display_list();
 void compute_list();
+//* int carry_function();
 
 int main(int argc, char const *argv[])
 {
@@ -183,42 +184,61 @@ void compute_list()
     int sum;
     int carry = 0;
 
-    do
+    if ((list1.curr != NULL) && (list2.curr != NULL))
     {
-        /* if (list2.curr == NULL)
-        {
-            sumlist.insert(list1.curr->data + carry);
-        }
-        else if (list1.curr == NULL)
-        {
-            sumlist.insert(list2.curr->data + carry);
-        }
-        else
+        do
         {
             sum = list1.curr->data + list2.curr->data + carry;
-        } */
 
-        sum = list1.curr->data + list2.curr->data + carry;
+            if (sum >= 10 && sum < 20)
+            {
+                sum = sum - 10;
+                carry = 1;
+            }
+            else if (sum >= 20)
+            {
+                sum = sum - 20;
+                carry = 2;
+            }
+            else
+            {
+                carry = 0;
+            }
 
-        if (sum >= 10 && sum < 20)
+            sumlist.insert(sum);
+
+            list1.curr = list1.curr->prev;
+            list2.curr = list2.curr->prev;
+
+        } while ((list1.curr != NULL) && (list2.curr != NULL));
+    }
+    else if ((list1.curr != NULL) && (list2.curr == NULL))
+    {
+        do
         {
-            sum = sum - 10;
-            carry = 1;
-        }
-        else if (sum >= 20)
+            sum = list1.curr->data + carry;
+
+            sumlist.insert(sum);
+
+            list1.curr = list1.curr->prev;
+
+        } while (list1.curr != NULL);
+    }
+    else if ((list2.curr != NULL) && (list1.curr == NULL))
+    {
+        do
         {
-            sum = sum - 20;
-            carry = 2;
-        }
-        else
-        {
-            carry = 0;
-        }
+            sum = list2.curr->data + carry;
 
-        sumlist.insert(sum);
+            sumlist.insert(sum);
 
-        list1.curr = list1.curr->prev;
-        list2.curr = list2.curr->prev;
+            list2.curr = list2.curr->prev;
 
-    } while ((list1.curr != NULL) && (list2.curr != NULL));
+        } while (list2.curr != NULL);
+    }
+}
+
+int carry_function(int sum)
+{
+    int carry;
 }
