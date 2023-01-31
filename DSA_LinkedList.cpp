@@ -64,7 +64,24 @@ LinkedList list1;
 LinkedList list2;
 LinkedList sumlist;
 
-int create_list();
+int create_list()
+{
+    int input;
+
+    do
+    {
+        cout << "Enter a digit: ";
+        cin >> input;
+
+        if (input > 9)
+        {
+            cout << "\nLimitError: accepts single digit only \n";
+        }
+
+    } while (input > 9);
+
+    return input;
+}
 void compute_list();
 //* int carry_function();
 
@@ -117,11 +134,19 @@ int main(int argc, char const *argv[])
             switch (choice)
             {
             case 1:
+            LIST_1:
                 system("cls");
                 if (list1.head != NULL)
                 {
                     cout << "OverwriteAlert!\n";
-                    cout << "List #1 will be overwritten!";
+                    cout << "List #1 will be overwritten!\n";
+                    system("pause");
+                    cout << "\nResetting List #1 .";
+                    sleep(1);
+                    cout << "..";
+                    sleep(1);
+                    cout << "..\n";
+                    cout << "\n--Overwrite Success--\n\n";
                     system("pause");
                 }
 
@@ -134,7 +159,7 @@ int main(int argc, char const *argv[])
                     cin >> nodes;
 
                     if (nodes > 7)
-                        cout << "LimitError: up to 7 nodes only\n";
+                        cout << "\nLimitError: up to 7 nodes only\n";
 
                 } while (nodes > 7);
 
@@ -149,11 +174,19 @@ int main(int argc, char const *argv[])
 
                 goto LISTS_MENU;
             case 2:
+            LIST_2:
                 system("cls");
                 if (list2.head != NULL)
                 {
                     cout << "OverwriteAlert!\n";
-                    cout << "List #2 will be overwritten!";
+                    cout << "List #2 will be overwritten!\n";
+                    system("pause");
+                    cout << "\nResetting List #2 .";
+                    sleep(1);
+                    cout << "..";
+                    sleep(1);
+                    cout << "..\n";
+                    cout << "\n--Overwrite Success--\n\n";
                     system("pause");
                 }
 
@@ -166,7 +199,7 @@ int main(int argc, char const *argv[])
                     cin >> nodes;
 
                     if (nodes > 7)
-                        cout << "LimitError: up to 7 nodes only\n";
+                        cout << "\nLimitError: up to 7 nodes only\n";
 
                 } while (nodes > 7);
 
@@ -201,7 +234,8 @@ int main(int argc, char const *argv[])
                 cout << "..";
                 sleep(1);
                 cout << "..\n";
-
+                cout << "\n--Overwrite Success--\n\n";
+                system("pause");
                 goto LISTS_MENU;
             case 4:
                 system("cls");
@@ -214,7 +248,7 @@ int main(int argc, char const *argv[])
                 break;
             default:
                 system("cls");
-                cout << "InputError: Make sure input is correct.\n\n";
+                cout << "InputError: make sure input is correct.\n\n";
                 system("pause");
 
                 goto LISTS_MENU;
@@ -252,7 +286,7 @@ int main(int argc, char const *argv[])
                 y_n = getch();
 
                 if (y_n == 'Y' || y_n == 'y')
-                    goto LISTS_MENU;
+                    goto LIST_2;
             }
             else if (list1.head == NULL && list2.head != NULL)
             {
@@ -268,7 +302,7 @@ int main(int argc, char const *argv[])
                 y_n = getch();
 
                 if (y_n == 'Y' || y_n == 'y')
-                    goto LISTS_MENU;
+                    goto LIST_1;
             }
             else
             {
@@ -312,7 +346,7 @@ int main(int argc, char const *argv[])
                 y_n = getch();
 
                 if (y_n == 'Y' || y_n == 'y')
-                    goto LISTS_MENU;
+                    goto LIST_1;
                 else
                     system("cls");
 
@@ -339,7 +373,7 @@ int main(int argc, char const *argv[])
                 y_n = getch();
 
                 if (y_n == 'Y' || y_n == 'y')
-                    goto LISTS_MENU;
+                    goto LIST_2;
                 else
                     system("cls");
 
@@ -409,25 +443,6 @@ int main(int argc, char const *argv[])
     }
 
     return 0;
-}
-
-int create_list()
-{
-    int input;
-
-    do
-    {
-        cout << "Enter Element: ";
-        cin >> input;
-
-        if (input > 9)
-        {
-            cout << "Error: single digit only \n";
-        }
-
-    } while (input > 9);
-
-    return input;
 }
 
 void compute_list()
