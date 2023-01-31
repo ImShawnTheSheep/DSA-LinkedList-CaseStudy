@@ -85,6 +85,7 @@ int main(int argc, char const *argv[])
         cout << "1. Create Lists\n";
         cout << "2. Display Lists\n";
         cout << "3. Compute Lists\n";
+        cout << "4. Exit Program\n";
         cout << "------------------------------------\n";
 
         cout << "INPUT: ";
@@ -116,6 +117,7 @@ int main(int argc, char const *argv[])
             switch (choice)
             {
             case 1:
+                system("cls");
                 if (list1.head != NULL)
                 {
                     cout << "OverwriteAlert!\n";
@@ -147,6 +149,7 @@ int main(int argc, char const *argv[])
 
                 goto LISTS_MENU;
             case 2:
+                system("cls");
                 if (list2.head != NULL)
                 {
                     cout << "OverwriteAlert!\n";
@@ -178,6 +181,7 @@ int main(int argc, char const *argv[])
 
                 goto LISTS_MENU;
             case 3:
+                system("cls");
                 cout << "OverwriteAlert!\n";
                 cout << "All Lists Made Will Be OVERWRITTEN!\n";
                 system("pause");
@@ -201,6 +205,7 @@ int main(int argc, char const *argv[])
                 goto LISTS_MENU;
             case 4:
                 system("cls");
+                cout << "Going back to main menu\n";
                 cout << "Please wait .";
                 sleep(1);
                 cout << "..";
@@ -217,6 +222,11 @@ int main(int argc, char const *argv[])
             break;
         case 2:
             system("cls");
+            cout << "\nDisplaying Lists .";
+            sleep(1);
+            cout << "..";
+            sleep(1);
+            cout << "..\n";
             if (list1.head != NULL && list2.head != NULL)
             {
                 cout << "------------------------------------\n";
@@ -251,7 +261,7 @@ int main(int argc, char const *argv[])
                 cout << "------------------------------------\n";
                 cout << "List #2: ";
                 list2.display();
-                cout << "------------------------------------\n";
+                cout << "\n------------------------------------\n";
 
                 cout << "\nNo data entered in List #1!\n";
                 cout << "Would you like to create List #1? [Y/n]\n";
@@ -277,6 +287,118 @@ int main(int argc, char const *argv[])
             }
             cout << "\n\n";
             system("pause");
+            cout << "Going back to main menu\n";
+            cout << "Please wait .";
+            sleep(1);
+            cout << "..";
+            sleep(1);
+            cout << "..";
+            break;
+        case 3:
+            system("cls");
+            if (list1.head == NULL && list2.head == NULL)
+            {
+                cout << "ComputeError: No data in the lists!\n";
+                cout << "Would you like to create the lists? [Y/n]\n";
+                y_n = getch();
+
+                if (y_n == 'Y' || y_n == 'y')
+                    goto LISTS_MENU;
+            }
+            else if (list1.head == NULL && list2.head != NULL)
+            {
+                cout << "ListWarn: No data in List #1!\n";
+                cout << "Would you like to create List #1 before computing? [Y/n]\n";
+                y_n = getch();
+
+                if (y_n == 'Y' || y_n == 'y')
+                    goto LISTS_MENU;
+                else
+                    system("cls");
+
+                compute_list();
+                cout << "\nComputing Lists .";
+                sleep(1);
+                cout << "..";
+                sleep(1);
+                cout << "..\n";
+                cout << "\n--Compute Success--\n";
+
+                cout << "\n------------------------------------\n";
+                cout << "List #2: ";
+                list2.display();
+                cout << "\n------------------------------------\n";
+                cout << "Total:   ";
+                sumlist.rev_display();
+                cout << "\n------------------------------------\n";
+            }
+            else if (list1.head != NULL && list2.head == NULL)
+            {
+                cout << "ListWarn: No data in List #2!\n";
+                cout << "Would you like to create List #2 before computing? [Y/n]\n";
+                y_n = getch();
+
+                if (y_n == 'Y' || y_n == 'y')
+                    goto LISTS_MENU;
+                else
+                    system("cls");
+
+                compute_list();
+                cout << "\nComputing Lists .";
+                sleep(1);
+                cout << "..";
+                sleep(1);
+                cout << "..\n";
+                cout << "\n--Compute Success--\n";
+
+                cout << "\n------------------------------------\n";
+                cout << "List #1: ";
+                list1.display();
+                cout << "\n------------------------------------\n";
+                cout << "Total:   ";
+                sumlist.rev_display();
+                cout << "\n------------------------------------\n";
+            }
+            else
+            {
+                compute_list();
+                cout << "\nComputing Lists .";
+                sleep(1);
+                cout << "..";
+                sleep(1);
+                cout << "..\n";
+                cout << "\n--Compute Success--\n";
+
+                cout << "\n------------------------------------\n";
+                cout << "List #1: ";
+                list1.display();
+                cout << "\n------------------------------------\n";
+                cout << "List #2: ";
+                list2.display();
+                cout << "\n------------------------------------\n";
+                cout << "Total:   ";
+                sumlist.rev_display();
+                cout << "\n------------------------------------\n";
+            }
+
+            cout << "\n\n";
+            system("pause");
+            cout << "Going back to main menu\n";
+            cout << "Please wait .";
+            sleep(1);
+            cout << "..";
+            sleep(1);
+            cout << "..";
+            break;
+        case 4:
+            no_exit = false;
+            system("cls");
+            cout << "Exiting Program\n";
+            cout << "Please wait .";
+            sleep(1);
+            cout << "..";
+            sleep(1);
+            cout << "..";
             break;
         default:
             system("cls");
