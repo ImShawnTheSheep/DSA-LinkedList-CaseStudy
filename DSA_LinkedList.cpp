@@ -281,7 +281,7 @@ int main(int argc, char const *argv[])
                 cout << "------------------------------------\n";
                 cout << "List #1: NO DATA TO DISPLAY!\n";
                 cout << "------------------------------------\n";
-                cout << "List #1: NO DATA TO DISPLAY!\n";
+                cout << "List #2: NO DATA TO DISPLAY!\n";
                 cout << "------------------------------------\n";
 
                 cout << "\nNo data entered in the lists!\n";
