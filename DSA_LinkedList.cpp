@@ -70,13 +70,13 @@ LinkedList list2;   // for List #2
 LinkedList sumlist; // for the total of the lists
 
 /*
- * prototype functions for:
- *  set number of nodes by user input
- *  creating the lists by user input
- *  compute the lists
- *  resetting lists
- *  delaying output
- *  prompt going back to main menu
+ *  prototype functions for:
+ *      set number of nodes by user input
+ *      creating the lists by user input
+ *      compute the lists
+ *      resetting lists
+ *      delaying output
+ *      prompt going back to main menu
  */
 int setnum_node();
 int create_list();
@@ -313,7 +313,8 @@ int main(int argc, char const *argv[])
             // compute and dislpay LIST #2 if LIST #1 is empty
             else if (list1.head == NULL && list2.head != NULL)
             {
-                cout << "ListWarn: No data in List #1!\n";
+                //! Warns user if no data is in the list
+                cout << "ListAlert! No data in List #1!\n";
                 cout << "Would you like to create List #1 before computing? [Y/n]\n";
                 y_n = getch();
 
@@ -338,7 +339,8 @@ int main(int argc, char const *argv[])
             // compute and display LIST #1 if LIST #2 is empty
             else if (list1.head != NULL && list2.head == NULL)
             {
-                cout << "ListWarn: No data in List #2!\n";
+                //! Warns user if no data is in the list
+                cout << "ListAlert! No data in List #2!\n";
                 cout << "Would you like to create List #2 before computing? [Y/n]\n";
                 y_n = getch();
 
@@ -467,6 +469,10 @@ void reset_list(int n)
         sumlist.head = NULL;
         sumlist.tail = NULL;
         break;
+    case 5:
+        list2.curr = list2.tail;
+        list1.curr = list1.tail;
+        break;
     }
 }
 //* function for delaying output
@@ -490,8 +496,7 @@ void to_main()
 void compute_list()
 {
 
-    list2.curr = list2.tail;
-    list1.curr = list1.tail;
+    reset_list(5);
     reset_list(4);
 
     int sum;
@@ -625,7 +630,7 @@ void compute_list()
         } while (list2.curr != NULL);
     }
 
-    //* inserts carry to the sum
+    //* brings down carry if there are remaining
     if (carry >= 1)
         sumlist.insert(carry);
 }
