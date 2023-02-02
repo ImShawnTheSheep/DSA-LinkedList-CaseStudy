@@ -1,3 +1,9 @@
+# Authors
+
+- Jumawan, Shawn MichaelLopez
+- Maui Mark Daniel
+- Baledoya, Kyla Keith
+
 # A Case Study on Linked Lists
 
     Hi! We are IT students from the PUP Quezon City Branch.
@@ -20,13 +26,3 @@
 # Code Output
 
 [https://github.com/ImShawnTheSheep/DSA-LinkedList-CaseStudy/blob/34c00a46550ffe39b890367b6d261851e072f5bf/run.mov](https://user-images.githubusercontent.com/77852376/216237364-923884bb-3050-4d3f-a98e-8c41b4dd4af4.mov)
-
-# Authors
-
-    Jumawan, Shawn Michael
-    Lopez, Maui Mark Daniel
-    Baledoya, Kyla Keith
-
-
-
-
