@@ -1,3 +1,4 @@
+//* library imports
 #include <iostream>
 #include <conio.h>
 #include <stdlib.h>
@@ -73,8 +74,8 @@ LinkedList sumlist; // for the total of the lists
  *  prototype functions for:
  *      set number of nodes by user input
  *      creating the lists by user input
- *      compute the lists
  *      resetting lists
+ *      compute the lists
  *      delaying output
  *      prompt going back to main menu
  */
@@ -151,7 +152,7 @@ int main(int argc, char const *argv[])
                     delay_out();
                     cout << "\n--Overwrite Success--\n\n";
                     system("pause");
-                    goto LIST_1;
+                    system("cls");
                 }
 
                 reset_list(1);
@@ -180,7 +181,7 @@ int main(int argc, char const *argv[])
                     delay_out();
                     cout << "\n--Overwrite Success--\n\n";
                     system("pause");
-                    goto LIST_2;
+                    system("cls");
                 }
 
                 reset_list(2);
