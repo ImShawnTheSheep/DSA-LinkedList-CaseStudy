@@ -1,7 +1,7 @@
 # Authors
 
-- Jumawan, Shawn MichaelLopez
-- Maui Mark Daniel
+- Jumawan, Shawn Michael
+- Lopez, Maui Mark Daniel
 - Baledoya, Kyla Keith
 
 # A Case Study on Linked Lists
