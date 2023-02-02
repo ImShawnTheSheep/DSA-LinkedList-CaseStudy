@@ -19,8 +19,6 @@
 
 # Code Output
 
-https://github.com/ImShawnTheSheep/DSA-LinkedList-CaseStudy/blob/main/run.mov
-
 # Authors
 
     Jumawan, Shawn Michael
