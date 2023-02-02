@@ -495,7 +495,6 @@ void to_main()
 //* function for computing the lists
 void compute_list()
 {
-
     reset_list(5);
     reset_list(4);
 
@@ -510,33 +509,13 @@ void compute_list()
             sum = list1.curr->data + list2.curr->data + carry;
 
             //* SUM PROCESSING MODULE
-            if (sum >= 10 && sum < 20)
+            if (sum >= 10)
             {
                 sum = sum - 10;
                 carry = 1;
             }
-            else if (sum == 10 || sum == 20)
-            {
-                if (sum == 10)
-                {
-                    carry = 1;
-                    sum = 0;
-                }
-                else if (sum == 20)
-                {
-                    carry = 2;
-                    sum = 0;
-                }
-            }
-            else if (sum > 20)
-            {
-                sum = sum - 20;
-                carry = 2;
-            }
             else
-            {
                 carry = 0;
-            }
 
             sumlist.insert(sum);
 
@@ -553,33 +532,13 @@ void compute_list()
             sum = list1.curr->data + carry;
 
             //* SUM PROCESSING MODULE
-            if (sum > 10 && sum < 20)
+            if (sum >= 10)
             {
                 sum = sum - 10;
                 carry = 1;
             }
-            else if (sum == 10 || sum == 20)
-            {
-                if (sum == 10)
-                {
-                    carry = 1;
-                    sum = 0;
-                }
-                else if (sum == 20)
-                {
-                    carry = 2;
-                    sum = 0;
-                }
-            }
-            else if (sum > 20)
-            {
-                sum = sum - 20;
-                carry = 2;
-            }
             else
-            {
                 carry = 0;
-            }
 
             sumlist.insert(sum);
 
@@ -595,33 +554,13 @@ void compute_list()
             sum = list2.curr->data + carry;
 
             //* SUM PROCESSING MODULE
-            if (sum > 10 && sum < 20)
+            if (sum >= 10)
             {
                 sum = sum - 10;
                 carry = 1;
             }
-            else if (sum == 10 || sum == 20)
-            {
-                if (sum == 10)
-                {
-                    carry = 1;
-                    sum = 0;
-                }
-                else if (sum == 20)
-                {
-                    carry = 2;
-                    sum = 0;
-                }
-            }
-            else if (sum > 20)
-            {
-                sum = sum - 20;
-                carry = 2;
-            }
             else
-            {
                 carry = 0;
-            }
 
             sumlist.insert(sum);
 
