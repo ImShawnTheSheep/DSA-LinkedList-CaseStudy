@@ -47,6 +47,28 @@ public:
         }
     }
 
+    void rev_insert(int value)
+    {
+        Node *temp = new Node();
+        temp->data = value;
+        temp->next = NULL;
+        temp->prev = NULL;
+
+        if (tail == NULL)
+        {
+            tail = temp;
+            head = temp;
+            temp = NULL;
+        }
+        else
+        {
+            head->prev = temp;
+            temp->next = head;
+            head = temp;
+            temp = NULL;
+        }
+    }
+
     void display()
     {
         Node *temp = head;
@@ -55,17 +77,6 @@ public:
         {
             cout << temp->data << " ";
             temp = temp->next;
-        }
-    }
-
-    void rev_display()
-    {
-        Node *temp = tail;
-        temp = tail;
-        while (temp != NULL)
-        {
-            cout << temp->data << " ";
-            temp = temp->prev;
         }
     }
 };
@@ -218,7 +229,9 @@ int main(int argc, char const *argv[])
                 system("pause");
                 goto LISTS_MENU;
             case 4:
-                to_main();
+                cout << "Going back to main menu\n";
+                cout << "Please wait .";
+                delay_out();
                 break;
             default:
                 system("cls");
@@ -339,7 +352,7 @@ int main(int argc, char const *argv[])
                 list2.display();
                 cout << "\n------------------------------------\n";
                 cout << "Total:   ";
-                sumlist.rev_display();
+                sumlist.display();
                 cout << "\n------------------------------------\n";
             }
             // compute and display LIST #1 if LIST #2 is empty
@@ -368,7 +381,7 @@ int main(int argc, char const *argv[])
                 list1.display();
                 cout << "\n------------------------------------\n";
                 cout << "Total:   ";
-                sumlist.rev_display();
+                sumlist.display();
                 cout << "\n------------------------------------\n";
             }
             // display and compute all lists if lists are not empty
@@ -390,7 +403,7 @@ int main(int argc, char const *argv[])
                 list2.display();
                 cout << "\n------------------------------------\n";
                 cout << "Total:   ";
-                sumlist.rev_display();
+                sumlist.display();
                 cout << "\n------------------------------------\n";
             }
 
@@ -523,7 +536,7 @@ void compute_list()
             else
                 carry = 0;
 
-            sumlist.insert(sum);
+            sumlist.rev_insert(sum);
 
             list1.curr = list1.curr->prev;
             list2.curr = list2.curr->prev;
@@ -546,7 +559,7 @@ void compute_list()
             else
                 carry = 0;
 
-            sumlist.insert(sum);
+            sumlist.rev_insert(sum);
 
             list1.curr = list1.curr->prev;
 
@@ -568,7 +581,7 @@ void compute_list()
             else
                 carry = 0;
 
-            sumlist.insert(sum);
+            sumlist.rev_insert(sum);
 
             list2.curr = list2.curr->prev;
 
@@ -577,5 +590,5 @@ void compute_list()
 
     //* brings down carry if there are remaining
     if (carry >= 1)
-        sumlist.insert(carry);
+        sumlist.rev_insert(carry);
 }
