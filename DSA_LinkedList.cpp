@@ -4,6 +4,11 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+/*
+ *   This code is available in our GitHub Repository
+ *   Go to https://github.com/ImShawnTheSheep/DSA-LinkedList-CaseStudy
+ */
+
 using namespace std;
 
 //* create a Node structure
