@@ -65,7 +65,6 @@ public:
             head->prev = temp;
             temp->next = head;
             head = temp;
-            temp = NULL;
         }
     }
 
